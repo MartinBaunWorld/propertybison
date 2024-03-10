@@ -5,4 +5,4 @@ set -e
 mkdir dist || true
 
 echo Building..
-python3 statictiger.py build content dist --host=https://propertybison.com
+python3 staticviking.py build content dist --host=https://propertybison.com
