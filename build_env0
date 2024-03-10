@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -e
+
+mkdir dist || true
+
+echo Building..
+python3 statictiger.py build content dist --host=https://propertybison.com

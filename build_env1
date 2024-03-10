@@ -1,0 +1,24 @@
+#!/bin/bash
+
+set -e
+
+mkdir dist || true
+
+echo Getting content from Contentful..
+python3 contentful.py 'https://cdn.contentful.com/spaces/qnjr65ytesdd/environments/master/entries?access_token=Nr9f_0YQDsrT_eAHV-p5gslusUejtEnBbihzu-6mwsQ&content_type=martinBaunBlog' content/posts
+
+echo Building..
+python3 statictiger.py build content dist --host=https://martinbaun.netlify.app/blog
+
+cp -r public/* dist/
+
+echo Nofollow added..
+echo "User-agent: *" > dist/robots.txt
+echo "Disallow: /" >> dist/robots.txt
+
+cp dist/blog/index.html dist/
+cp -r dist/blog/book dist/
+cp dist/blog/sitemap.xml dist/
+
+curl https://admin.baunit.com/redirects/QGvrnKtHTuRyF29tSuUnSt/ > _redirects
+cp _redirects dist/

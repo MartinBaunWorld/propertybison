@@ -1,0 +1,5 @@
+#!/bin/bash
+
+python3 myspider.py trans
+python3 myspider.py blog
+./staticviking.py buildserve content dist/

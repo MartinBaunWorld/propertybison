@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -e
+
+if [[ $ENV == "env1" ]]
+then
+	./build_env1
+else
+	./build_env0
+fi
