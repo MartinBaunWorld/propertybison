@@ -177,6 +177,7 @@ class Blog:
         print("Handle files..")
         shutil.copytree(self.tmpls + "/to_copy/", self.dist + "/")
         for fn in self.files:
+            print(fn)
             file_ext = fn.split(".")[-1]
             if not fn.endswith('.md') and file_ext in ["jpg", "jpeg", "png"]:
                 dst = self.dist + fn[len(self.content):]

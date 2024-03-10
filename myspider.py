@@ -46,6 +46,8 @@ def trans():
         
         save(f"results/{fn}", unit)
 
+"""
+"""
 
 tmpl = Template("""---
 title: "{{title_en}}"
@@ -78,7 +80,7 @@ def blog():
         with open(f'content/en/bulgaria/{unit["id"]}.md', 'w') as f:
             f.write(
                 tmpl.render(
-                    title_en=unit.get('title_en', unit.get('title_bg')),
+                    title_en=unit.get('title_en', unit.get('title_bg')).replace(":: imot.bg Advertisment", "").replace("\"", "'").replace("\n", " "),
                     desc_en=unit.get('desc_en', unit.get('desc_bg')),
                     image=unit.get('images')[0] if len(unit.get('images'))>0 else "",
                     floor=unit.get('floor'),
