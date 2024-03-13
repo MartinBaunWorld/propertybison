@@ -2,3 +2,4 @@ __pycache__/*
 .scrapy/*
 dist/*
 results/*
+nodetest/*

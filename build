@@ -1,5 +1,6 @@
 #!/bin/bash
 
-python3 myspider.py trans
-python3 myspider.py blog
+# python3 enhance.py
+python3 trans.py
+python3 blog.py
 ./staticviking.py buildserve content dist/
